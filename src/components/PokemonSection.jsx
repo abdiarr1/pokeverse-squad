@@ -17,7 +17,7 @@ const PokemonSection = () => {
 
   return (
     <>
-      <Heading classes="mb-3">All Pokemon</Heading>
+      <Heading classes="mb-5">All Pokemon</Heading>
       <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <PokemonList searchTerm={searchTerm} />
     </>
