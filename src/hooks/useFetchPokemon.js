@@ -32,7 +32,7 @@ const useFetchPokemon = (url) => {
       const resolvedPromises = await Promise.all(promises);
 
       setPokemon(resolvedPromises);
-      // setIsLoading(false);
+      setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
       setIsError(true);
