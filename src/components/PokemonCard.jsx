@@ -3,8 +3,6 @@ import Button from './Button';
 import { SquadContext } from '../context/SquadContext';
 
 const PokemonCard = ({ name, info }) => {
-  console.log(info);
-
   const { squad, addPokemonToSquad, removePokemonFromSquad } =
     useContext(SquadContext);
 

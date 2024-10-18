@@ -2,7 +2,7 @@ import { SquadContext } from '../context/SquadContext';
 import PokemonCard from './PokemonCard';
 import { useContext } from 'react';
 
-const PokemonList = ({ pokemon }) => {
+const PokemonList = ({ pokemon, searchTerm }) => {
   const { squad } = useContext(SquadContext);
 
   const renderPokemon = () => {
@@ -10,9 +10,11 @@ const PokemonList = ({ pokemon }) => {
       return squad.map((singlePokemon) => {
         return <PokemonCard key={singlePokemon.name} {...singlePokemon} />;
       });
-    return pokemon.map((singlePokemon) => {
-      return <PokemonCard key={singlePokemon.name} {...singlePokemon} />;
-    });
+    return pokemon
+      .filter((poke) => poke.name.includes(searchTerm))
+      .map((singlePokemon) => {
+        return <PokemonCard key={singlePokemon.name} {...singlePokemon} />;
+      });
   };
 
   return (
