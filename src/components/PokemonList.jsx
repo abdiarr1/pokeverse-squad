@@ -6,15 +6,16 @@ const PokemonList = ({ pokemon, searchTerm }) => {
   const { squad } = useContext(SquadContext);
 
   const renderPokemon = () => {
-    if (!pokemon)
-      return squad.map((singlePokemon) => {
+    return (
+      pokemon
+        ?.filter((poke) => poke.name.includes(searchTerm))
+        .map((singlePokemon) => {
+          return <PokemonCard key={singlePokemon.name} {...singlePokemon} />;
+        }) ||
+      squad.map((singlePokemon) => {
         return <PokemonCard key={singlePokemon.name} {...singlePokemon} />;
-      });
-    return pokemon
-      .filter((poke) => poke.name.includes(searchTerm))
-      .map((singlePokemon) => {
-        return <PokemonCard key={singlePokemon.name} {...singlePokemon} />;
-      });
+      })
+    );
   };
 
   return (
