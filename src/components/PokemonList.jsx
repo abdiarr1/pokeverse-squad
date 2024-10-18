@@ -1,13 +1,15 @@
+import { PokemonContext } from '../context/PokemonContext';
 import { SquadContext } from '../context/SquadContext';
 import PokemonCard from './PokemonCard';
 import { useContext } from 'react';
 
-const PokemonList = ({ pokemon, searchTerm }) => {
+const PokemonList = ({ searchTerm }) => {
   const { squad } = useContext(SquadContext);
+  const pokemonContext = useContext(PokemonContext);
 
   const renderPokemon = () => {
     return (
-      pokemon
+      pokemonContext?.pokemon
         ?.filter((poke) => poke.name.includes(searchTerm))
         .map((singlePokemon) => {
           return <PokemonCard key={singlePokemon.name} {...singlePokemon} />;
