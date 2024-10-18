@@ -4,7 +4,7 @@ import axios from 'axios';
 const useFetchPokemon = (url) => {
   const [pokemon, setPokemon] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   const fetchPokemon = async () => {
     try {
